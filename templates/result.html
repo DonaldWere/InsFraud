@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+
+{% block content %}
+	<!--<div class="container-md">	
+		<h2>The Person is affected by : {{prediction}} </h2>
+	</div>
+
+	<div class="container-sm">
+		<h3 class="text-primary">Previous Predictions </h3>
+		<table class="table table-hover table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Comment</th>
+					<th>Prediction</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% set i = namespace(value=1) %}
+				{% for row in value %}
+					<tr>
+						<td>{{i.value}}</td>
+						<td>{{row[1]}}</td>
+						<td>{{row[2]}}</td>
+					</tr>
+					{% set i.value = i.value +1 %}
+				{% endfor %}
+			</tbody>
+		</table>
+	</div> -->
+{% endblock %}

@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- data table files-->
+	<script> scr="https://code.jquery.com/jquery-3.5.1.js"</script>
+	<script> scr="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"</script>
+	<script> scr="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"</script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+	<script>
+		$(document).ready(function() {
+    		$('#claims_table').DataTable();
+		} );
+	</script>
+</head>
+<body>
+	<div class="container-lg p-3 my-3 bg-primary text-white">
+		<h1>Insurance Fraud Detection</h1>
+		<p>The system checks the likelihood of a reported claim being fraudulent</p>
+	</div>
+	
+	{% block content %}
+	<div class="container-md">
+		<button type="button" class="btn btn-outline-success" onclick="window.location.href='{{ url_for('claim') }}';">Claim</button>
+		<h3 class="text-primary"> Submitted Claims </h3>
+		<table class="table table-hover table-striped table-bordered" id="claims_table">
+			<thead class="thead-dark">
+				<tr>
+					<th>CLAIM NO</th>
+					<th>PH GENDER</th>
+					<th>CAR MODEL</th>
+					<th>REPLACEMENT VALUE</th>
+					<th>REGION OF ACCIDENT</th>
+					<th>TYPE OF ACCIDENT</th>
+					<th>DAYS TO POLICY EXPIRY</th>
+					<th onclick="sortTable(1)">FRAUD LIKELIHOOD</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in value %}
+				<tr>
+					<td>{{row[0]}}</td>
+					{% if row[1] == 1 %}
+						<td>M</td>
+					{% else %}
+						<td>F</td>
+					{% endif %}
+					<td>{{row[2]}}</td>
+					<td>{{row[3]}}</td>
+					<td>{{row[4]}}</td>
+					<td>{{row[5]}}</td>
+					<td>{{row[6]}}</td>
+					<td>{{row[7]}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div> 
+	{% endblock %}
+</body>
+</html>
