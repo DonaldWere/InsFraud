@@ -24,11 +24,11 @@ app = Flask(__name__)
 
 #database variables
 fraud_db = mysql.connector.connect(
-    database = "fraud_data",
-    host = "localhost",
-    port = "8889",
-    user = "root",
-    password = "root"
+    database = "[DATABASE",
+    host = "[HOST]",
+    port = "[PORT]",
+    user = "[USER]",
+    password = "[PASSWORD]"
     )
 fraud_cursor = fraud_db.cursor()
 sql_insert = "INSERT INTO claims_data (ph_gender, car_model, replace_value, area_code, accident_type, days_to_expiry, fraud_prob, fraudulent) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
